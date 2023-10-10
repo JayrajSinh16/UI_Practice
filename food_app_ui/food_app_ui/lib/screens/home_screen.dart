@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {}, icon: const Icon(Icons.clear))),
             ),
           ),
-          const RecentOrders(),
+          const RecentOrders(), 
         ],
       ),
     );
