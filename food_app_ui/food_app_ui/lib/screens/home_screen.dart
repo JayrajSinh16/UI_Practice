@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app_ui/data/data.dart';
+import 'package:food_app_ui/model/restaurant.dart';
+import 'package:food_app_ui/widgets/rating_starts.dart';
 import 'package:food_app_ui/widgets/recent_order.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,6 +12,84 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  _buildRestaurants() {
+    List<Widget> restaurantsList = [];
+    restaurants.forEach((Restaurant restaurant) {
+      restaurantsList.add(
+        Container(
+          margin: const EdgeInsets.symmetric(
+            horizontal: 20.0,
+            vertical: 10.0,
+          ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(
+              width: 1.0,
+              color: Colors.grey.shade600,
+            ),
+            borderRadius: BorderRadius.circular(
+              15.0,
+            ),
+          ),
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15.0),
+                child: Image(
+                  image: AssetImage(restaurant.imageUrl.toString()),
+                  height: 15.0,
+                  width: 150.0,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.all(12.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      restaurant.name.toString(),
+                      style: const TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    RatingStar(rating: restaurant.rating!),
+                    const SizedBox(
+                      height: 4.0,
+                    ),
+                    Text(
+                      restaurant.address.toString(),
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(
+                      height: 4.0,
+                    ),
+                    const Text(
+                      "0.2 miles away",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      );
+    });
+    return Column(children: restaurantsList);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +137,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {}, icon: const Icon(Icons.clear))),
             ),
           ),
-          const RecentOrders(), 
+          const RecentOrders(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                child: Text(
+                  "Nearby Resturants",
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 1.2,
+                  ),
+                ),
+              ),
+              _buildRestaurants(),
+            ],
+          )
         ],
       ),
     );
