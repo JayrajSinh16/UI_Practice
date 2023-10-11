@@ -94,7 +94,7 @@ class _RecentOrdersState extends State<RecentOrders> {
               ),
               iconSize: 30.0,
             ),
-          )
+          ),
         ],
       ),
     );
