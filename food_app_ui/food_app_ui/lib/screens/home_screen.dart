@@ -4,6 +4,8 @@ import 'package:food_app_ui/screens/restaurant_screen.dart';
 import 'package:food_app_ui/widgets/rating_starts.dart';
 import 'package:food_app_ui/widgets/recent_order.dart';
 
+import 'cart_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -108,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: <Widget>[
           TextButton(
-            onPressed: () {},
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CartScreen(),),),
             child: Text(
               "Cart ($currentUser.cart.length)",
               style: const TextStyle(fontSize: 20),
