@@ -50,7 +50,7 @@ class _CartScreenState extends State<CartScreen> {
                           overflow: TextOverflow.ellipsis,
                         ),
                         const SizedBox(
-                          height: 10.0,
+                          height: 6.0,
                         ),
                         Text(
                           order.restaurant!.name!,
@@ -61,7 +61,7 @@ class _CartScreenState extends State<CartScreen> {
                           overflow: TextOverflow.ellipsis,
                         ),
                         const SizedBox(
-                          height: 10.0,
+                          height: 7.0,
                         ),
                         Container(
                           width: 100.0,
@@ -71,7 +71,7 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                             border: Border.all(
                               width: 0.8,
-                              color: Colors.black54,
+                              color: Theme.of(context).secondaryHeaderColor,
                             ),
                           ),
                           child: Row(
@@ -82,8 +82,9 @@ class _CartScreenState extends State<CartScreen> {
                                 child: Text(
                                   '-',
                                   style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
-                                    fontSize: 20.0,
+                                    color:
+                                        Theme.of(context).secondaryHeaderColor,
+                                    fontSize: 22.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -102,8 +103,9 @@ class _CartScreenState extends State<CartScreen> {
                                 child: Text(
                                   '+',
                                   style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
-                                    fontSize: 20.0,
+                                    color:
+                                        Theme.of(context).secondaryHeaderColor,
+                                    fontSize: 22.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -143,6 +145,9 @@ class _CartScreenState extends State<CartScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(Icons.arrow_back_ios_new_rounded)),
         title: Text('Cart (${currentUser.cart!.length})'),
       ),
       body: ListView.separated(
@@ -187,7 +192,7 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     ),
                     Text(
-                      '\$${totalPrice.toStringAsFixed(2)}',
+                      '₹ ${totalPrice.toStringAsFixed(2)}',
                       style: TextStyle(
                         color: Colors.green[700],
                         fontSize: 20.0,
@@ -209,10 +214,14 @@ class _CartScreenState extends State<CartScreen> {
         },
       ),
       bottomSheet: Container(
-        height: 100.0,
+        height: 80.0,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).highlightColor,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(15),
+            topRight: Radius.circular(15),
+          ),
           boxShadow: const [
             BoxShadow(
               color: Colors.black26,

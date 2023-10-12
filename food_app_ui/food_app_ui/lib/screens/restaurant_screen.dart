@@ -138,7 +138,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                       ),
                     ),
                     IconButton(
-                      color: Theme.of(context).primaryColor,
+                      color: Colors.redAccent.shade200,
                       iconSize: 35.0,
                       onPressed: () {},
                       icon: const Icon(
@@ -153,6 +153,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -191,6 +192,9 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:Theme.of(context).secondaryHeaderColor,
+                ),
                 onPressed: () {},
                 child: Container(
                   padding: const EdgeInsets.symmetric(
@@ -209,6 +213,9 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                 ),
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:Theme.of(context).secondaryHeaderColor,
+                ),
                 onPressed: () {},
                 child: Container(
                   padding: const EdgeInsets.symmetric(
@@ -248,15 +255,18 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
             child: GridView.count(
               padding: const EdgeInsets.all(10.0),
               crossAxisCount: 2,
-              children: [
-                ListView.builder(
-                  itemCount: widget.restaurant.menu!.length,
-                  itemBuilder: (context, index) {
-                    Food food = widget.restaurant.menu![index];
-                    return _buildMenuItem(food);
-                  },
-                )
-              ],
+              children: 
+                List.generate(widget.restaurant.menu!.length, (index) {
+                  Food food = widget.restaurant.menu![index];
+                  return _buildMenuItem(food);
+                }),
+                // ListView.builder(
+                //   itemCount: widget.restaurant.menu!.length,
+                //   itemBuilder: (context, index) {
+                //     Food food = widget.restaurant.menu![index];
+                //     return _buildMenuItem(food);
+                //   },
+                // )
             ),
           )
         ],

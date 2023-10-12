@@ -14,11 +14,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Food_App_UI',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey[50],
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+
+      darkTheme: ThemeData.dark(
+        //colorScheme:const ColorScheme.dark(),
         useMaterial3: true,
       ),
+
+
+      // theme: ThemeData.light(
+      //   useMaterial3: true,
+      // ),
       home: const HomeScreen(),
     );
   }

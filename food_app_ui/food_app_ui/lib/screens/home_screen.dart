@@ -19,14 +19,19 @@ class _HomeScreenState extends State<HomeScreen> {
     for (var restaurant in restaurants) {
       restaurantsList.add(
         GestureDetector(
-          onTap: () => Navigator.push(context,MaterialPageRoute(builder: (_) => RestaurantScreen(restaurant: restaurant),),),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => RestaurantScreen(restaurant: restaurant),
+            ),
+          ),
           child: Container(
             margin: const EdgeInsets.symmetric(
               horizontal: 20.0,
               vertical: 10.0,
             ),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).cardColor,
               border: Border.all(
                 width: 1.0,
                 color: Colors.grey.shade600,
@@ -38,12 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               children: [
                 Hero(
-                tag: restaurant.imageUrl!,
+                  tag: restaurant.imageUrl!,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
                     child: Image(
                       image: AssetImage(restaurant.imageUrl.toString()),
-                      height: 15.0,
+                      height: 150.0,
                       width: 150.0,
                       fit: BoxFit.cover,
                     ),
@@ -58,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         restaurant.name.toString(),
                         style: const TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 18.0,
                           fontWeight: FontWeight.bold,
                         ),
                         overflow: TextOverflow.ellipsis,
@@ -70,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         restaurant.address.toString(),
                         style: const TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 12.0,
                           fontWeight: FontWeight.w600,
                         ),
                         overflow: TextOverflow.ellipsis,
@@ -81,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       const Text(
                         "0.2 miles away",
                         style: TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 12.0,
                           fontWeight: FontWeight.w600,
                         ),
                         overflow: TextOverflow.ellipsis,
@@ -110,9 +115,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: <Widget>[
           TextButton(
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CartScreen(),),),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const CartScreen(),
+              ),
+            ),
             child: Text(
-              "Cart ($currentUser.cart.length)",
+              "Cart (${currentUser.cart!.length})",
               style: const TextStyle(fontSize: 20),
             ),
           ),
@@ -129,12 +139,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
-                    borderSide: const BorderSide(width: 0.8),
+                    borderSide: BorderSide(
+                      width: 0.8,
+                      color: Theme.of(context).secondaryHeaderColor,
+                    ),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                     borderSide: BorderSide(
-                        width: 0.8, color: Theme.of(context).primaryColor),
+                      width: 0.8,
+                      color: Theme.of(context).secondaryHeaderColor,
+                    ),
                   ),
                   hintText: "Search Food Or Resturants",
                   prefixIcon: const Icon(
@@ -154,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Text(
                   "Nearby Resturants",
                   style: TextStyle(
-                    fontSize: 24.0,
+                    fontSize: 22.0,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 1.2,
                   ),

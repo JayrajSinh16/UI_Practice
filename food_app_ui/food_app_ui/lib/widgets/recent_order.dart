@@ -14,11 +14,12 @@ class _RecentOrdersState extends State<RecentOrders> {
     return Container(
       margin: const EdgeInsets.all(10),
       width: 320.0,
+      height: 150,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         border: Border.all(
           width: 1.0,
-          color: Colors.grey.shade200,
+          color: Theme.of(context).primaryColorLight,
         ),
       ),
       child: Row(
@@ -45,29 +46,29 @@ class _RecentOrdersState extends State<RecentOrders> {
                     Text(
                       order.food!.name.toString(),
                       style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(
-                      height: 4.0,
+                      height: 2,
                     ),
                     Text(
                       order.restaurant!.name.toString(),
                       style: const TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 14.0,
                         fontWeight: FontWeight.w600,
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(
-                      height: 4.0,
+                      height: 2.0,
                     ),
                     Text(
                       order.date!.toString(),
                       style: const TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 14.0,
                         fontWeight: FontWeight.w600,
                       ),
                       overflow: TextOverflow.ellipsis,
@@ -83,7 +84,7 @@ class _RecentOrdersState extends State<RecentOrders> {
             margin: const EdgeInsets.only(right: 20.0),
             width: 48.0,
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).secondaryHeaderColor,
               borderRadius: BorderRadius.circular(30),
             ),
             child: IconButton(
@@ -110,7 +111,7 @@ class _RecentOrdersState extends State<RecentOrders> {
           child: Text(
             "Recent Orders",
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 22,
               fontWeight: FontWeight.w600,
               letterSpacing: 1.2,
             ),
