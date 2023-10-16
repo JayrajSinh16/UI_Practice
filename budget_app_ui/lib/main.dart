@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Budget App UI',
-      theme: ThemeData.dark(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.light(
         useMaterial3: true,
       ),
       home: const HomeScreen(),

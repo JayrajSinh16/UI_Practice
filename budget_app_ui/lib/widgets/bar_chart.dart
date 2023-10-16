@@ -34,12 +34,12 @@ class BarChart extends StatelessWidget {
               IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.arrow_back_rounded),
-                iconSize: 30.0,
+                iconSize: 24.0,
               ),
               const Text(
                 "June 17,2004 - June 23,2004",
                 style: TextStyle(
-                  fontSize: 18.0,
+                  fontSize: 12.0,
                   fontWeight: FontWeight.w600,
                   letterSpacing: 1.2,
                 ),
@@ -47,7 +47,7 @@ class BarChart extends StatelessWidget {
               IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.arrow_forward_rounded),
-                iconSize: 30.0,
+                iconSize: 24.0,
               ),
             ],
           ),
@@ -122,6 +122,7 @@ class Bar extends StatelessWidget {
           "₹ ${amountSpent.toStringAsFixed(2)}",
           style: const TextStyle(
             fontWeight: FontWeight.w600,
+            fontSize: 12,
           ),
         ),
         const SizedBox(

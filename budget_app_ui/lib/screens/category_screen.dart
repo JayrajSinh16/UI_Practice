@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:budget_app_ui/helpers/color_helper.dart';
 import 'package:budget_app_ui/models/category_model.dart';
-import 'package:budget_app_ui/models/expense_model.dart';
 import 'package:budget_app_ui/widgets/radial_painter.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -16,10 +15,10 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   _buildExpenses() {
     List<Widget> expenseList = [];
-    widget.category.expenses.forEach((Expense expense) {
+    for (var expense in widget.category.expenses) {
       expenseList.add(Container(
         alignment: Alignment.center,
-        margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        margin:const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         height: 80.0,
         width: double.infinity,
         decoration: BoxDecoration(
@@ -34,7 +33,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           ],
         ),
         child: Padding(
-          padding:const EdgeInsets.all(30.0),
+          padding:const EdgeInsets.all(10.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -46,7 +45,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 ),
               ),
               Text(
-                '-\$${expense.cost.toStringAsFixed(2)}',
+                '- ₹ ${expense.cost.toStringAsFixed(2)}',
                 style:const TextStyle(
                   color: Colors.red,
                   fontSize: 20.0,
@@ -57,7 +56,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           ),
         ),
       ));
-    });
+    }
     return Column(
       children: expenseList,
     );

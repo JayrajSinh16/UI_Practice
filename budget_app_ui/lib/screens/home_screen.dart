@@ -77,14 +77,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 return Stack(
                   children: [
                     Container(
-                      height: 20.0,
+                      height: 18.0,
                       decoration: BoxDecoration(
                         color: Colors.grey[200],
                         borderRadius: BorderRadius.circular(15.00),
                       ),
                     ),
                     Container(
-                      height: 20.0,
+                      height: 18.0,
                       width: barWidth,
                       decoration: BoxDecoration(
                         color: getColor(
@@ -113,11 +113,12 @@ class _HomeScreenState extends State<HomeScreen> {
         slivers: [
           SliverAppBar(
             title: const Text(
-              "Budget Application",
+              "Expense Tracker",
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+              ),
             ),
-            expandedHeight: 100.0,
             forceElevated: true,
-            floating: true,
             leading: IconButton(
               onPressed: () {},
               icon: const Icon(Icons.settings),
