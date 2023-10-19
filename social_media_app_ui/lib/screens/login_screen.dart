@@ -3,10 +3,8 @@ import 'package:social_media_app_ui/screens/home_screen.dart';
 import 'package:social_media_app_ui/widgets/curve_clipper.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -14,40 +12,34 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: SizedBox(
+        child:  Container(
           height: MediaQuery.of(context).size.height,
-          child: Column(
-            children: [
+          child:  Column(
+            children: <Widget>[
               ClipPath(
                 clipper: CurveClipper(),
                 child: Image(
-                  image: const AssetImage(
-                    'assets/images/login_background.jpg',
-                  ),
                   height: MediaQuery.of(context).size.height / 2.5,
                   width: double.infinity,
+                  image:const AssetImage('assets/images/login_background.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
               Text(
-                "SnapUp",
+                'SnapUp',
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontSize: 34.0,
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 1.0,
+                  letterSpacing: 10.0,
                 ),
               ),
-              const SizedBox(
-                height: 10.0,
-              ),
+              const SizedBox(height: 10.0),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                 child: TextField(
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: 15.0,
-                    ),
+                    contentPadding: EdgeInsets.symmetric(vertical: 15.0),
                     fillColor: Colors.white,
                     filled: true,
                     hintText: 'Username',
@@ -58,35 +50,38 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 10.0),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                 child: TextField(
-                  obscureText: true,
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: 15.0,
-                    ),
+                    contentPadding: EdgeInsets.symmetric(vertical: 15.0),
                     fillColor: Colors.white,
                     filled: true,
                     hintText: 'Password',
                     prefixIcon: Icon(
-                      Icons.password,
+                      Icons.lock,
                       size: 30.0,
                     ),
                   ),
+                  obscureText: true,
                 ),
               ),
-              const SizedBox(
-                height: 40.0,
-              ),
+              const SizedBox(height: 40.0),
               GestureDetector(
-                onTap: () => Navigator.pushReplacement(context, MaterialPageRoute(builder:(_) =>  const HomeScreen(),),),
+                onTap: () => Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => HomeScreen(),
+                  ),
+                ),
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 60.0),
+                  alignment: Alignment.center,
                   height: 45.0,
                   decoration: BoxDecoration(
                     color: Theme.of(context).primaryColor,
-                    borderRadius: BorderRadius.circular(30.0),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: const Text(
                     'Login',
@@ -103,13 +98,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Align(
                   alignment: FractionalOffset.bottomCenter,
                   child: GestureDetector(
-                    onTap: (){},
+                    onTap: () {},
                     child: Container(
                       alignment: Alignment.center,
                       color: Theme.of(context).primaryColor,
                       height: 80.0,
                       child: const Text(
-                        "Don't have an Account ? SignUp",
+                        'Don\'t have an account? Sign up',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,

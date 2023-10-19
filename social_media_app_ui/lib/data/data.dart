@@ -1,6 +1,7 @@
-import '../model/post_model.dart';
-import '../model/user_model.dart';
+import 'package:social_media_app_ui/models/post_model.dart';
+import 'package:social_media_app_ui/models/user_model.dart';
 
+// Posts
 final _post0 = Post(
   imageUrl: 'assets/images/post0.jpg',
   author: User(),
