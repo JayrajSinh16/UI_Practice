@@ -1,5 +1,3 @@
-import 'package:social_media_app_ui/models/post_model.dart';
-
 class User {
   final String? profileImageUrl;
   final String? backgroundImageUrl;
