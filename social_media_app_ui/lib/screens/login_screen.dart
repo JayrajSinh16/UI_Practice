@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_media_app_ui/widgets/curve_clipper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,13 +17,16 @@ class _LoginScreenState extends State<LoginScreen> {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
-              Image(
-                image: const AssetImage(
-                  'assets/images/login_background.jpg',
+              ClipPath(
+                clipper: CurveClipper(),
+                child: Image(
+                  image: const AssetImage(
+                    'assets/images/login_background.jpg',
+                  ),
+                  height: MediaQuery.of(context).size.height / 2.5,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
                 ),
-                height: MediaQuery.of(context).size.height / 2.5,
-                width: double.infinity,
-                fit: BoxFit.cover,
               ),
               Text(
                 "SnapUp",
